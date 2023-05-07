@@ -20,6 +20,21 @@ public class PlayerMovement : MonoBehaviour
     public void setPosition(Vector3 pos)
     {
         //swith playerIndex
+        Vector3 newPos;
+        switch (playerIndex)
+        {
+            case 1:
+                newPos = new Vector3(Mathf.Clamp(pos.x,0,50), pos.y, pos.z);
+            break;
+
+            case 2:
+                newPos = new Vector3(Mathf.Clamp(pos.x,50,100), pos.y, pos.z);
+            break;
+
+            default:
+                newPos = pos;
+            break;
+        }
         transform.position = pos;
     }
 }
