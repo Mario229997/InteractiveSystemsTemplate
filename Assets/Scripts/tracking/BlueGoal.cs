@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public string tagFilter;
+//public string tagFilter;
 
 public class BlueGoal : MonoBehaviour
 {
+    /*
     // Start is called before the first frame update
     void Start()
     {
@@ -17,12 +18,15 @@ public class BlueGoal : MonoBehaviour
     {
         
     }
-}
 
-private void OnTriggerEnter (Collider other)
-{
-    if (other.CompareTag (tagFilter))
+
+    private void OnTriggerEnter(Collider other)
     {
-        Destroy(gameObject);
+        if (other.CompareTag (tagFilter))
+        {
+            Destroy(gameObject);
+        }
     }
+    */
+
 }
