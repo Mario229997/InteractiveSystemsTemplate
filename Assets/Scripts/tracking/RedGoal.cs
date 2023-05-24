@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-
-public class BlueGoal : MonoBehaviour
+public class RedGoal : MonoBehaviour
 {
     public string tagFilter;
 

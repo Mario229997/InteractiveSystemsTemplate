@@ -9,6 +9,7 @@ TagManager:
   - enemy
   - Puck
   - BlueGoal
+  - RedGoal
   layers:
   - Default
   - TransparentFX
