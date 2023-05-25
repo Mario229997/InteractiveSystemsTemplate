@@ -13,9 +13,14 @@ public class BlueGoal : MonoBehaviour
         if (other.CompareTag (tagFilter))
         {
             //Destroy(gameObject);
-            gameObject.transform.position = new Vector3(50, 1, 50);
+           // gameObject.transform.position = new Vector3(50, 1, 50);
+           //Destroy(gameObject);
+
+           //newObject = Instantiate(gameObject, Vector3(50, 1, 50));
+           //Invoke("newObject", 2f);
         }
     }
+
     
 
 }
