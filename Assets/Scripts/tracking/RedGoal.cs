@@ -6,13 +6,19 @@ using UnityEngine;
 public class RedGoal : MonoBehaviour
 {
     public string tagFilter;
+    public Rigidbody Prefab;
+    public Transform Spawnpoint;
+
 
     private void OnTriggerEnter(Collider other)
     {
+
         if (other.CompareTag (tagFilter))
         {
-            //Destroy(gameObject);
-            gameObject.transform.position = new Vector3(50, 1, 50);
+            Destroy(gameObject);
+            Rigidbody Disk;
+            Disk = Instantiate(Prefab, Spawnpoint.position, Spawnpoint.rotation)as Rigidbody;
+            
         }
     }
     

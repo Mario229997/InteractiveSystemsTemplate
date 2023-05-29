@@ -3,24 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-
 public class BlueGoal : MonoBehaviour
 {
     public string tagFilter;
+    public Rigidbody Prefab;
+    public Transform Spawnpoint;
+
 
     private void OnTriggerEnter(Collider other)
     {
+
         if (other.CompareTag (tagFilter))
         {
-           //Destroy(gameObject);
-           gameObject.transform.position = new Vector3(50, 1, 50);
-           //Destroy(gameObject);
-
-           //newObject = Instantiate(gameObject, Vector3(50, 1, 50));
-           //Invoke("newObject", 2f);
+            Destroy(gameObject);
+            Rigidbody Disk;
+            Disk = Instantiate(Prefab, Spawnpoint.position, Spawnpoint.rotation)as Rigidbody;
+            
         }
     }
-
-    
 
 }
