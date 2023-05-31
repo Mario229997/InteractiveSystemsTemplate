@@ -8,6 +8,8 @@ public class RedGoal : MonoBehaviour
     public string tagFilter;
     public Rigidbody Prefab;
     public Transform Spawnpoint;
+    public AudioSource audio1;
+    public AudioSource audio2;
 
     private int goals_red;
 
@@ -27,6 +29,8 @@ public class RedGoal : MonoBehaviour
 
         if (other.CompareTag (tagFilter))
         {
+            audio1.Play();
+            audio2.Play();
             GoalRed();
             Destroy(gameObject);
             Rigidbody Disk;

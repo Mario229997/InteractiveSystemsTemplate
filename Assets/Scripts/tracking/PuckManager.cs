@@ -10,6 +10,8 @@ public class PuckManager : MonoBehaviour
     public string tagFilter2;
     public string tagFilter3;
     public string tagFilter4;
+    public AudioSource audio1;
+    public AudioSource audio2;
     private Rigidbody rb;
     private Vector3 init_pos;
 
@@ -38,9 +40,13 @@ public class PuckManager : MonoBehaviour
 
         if (other.CompareTag(tagFilter))  //if tagFilter = Blue goal tag
         {
+            audio1.Play();
+            audio2.Play();
             Gm.PlayerScored(1);
            
         }else if(other.CompareTag(tagFilter2)){
+            audio1.Play();
+            audio2.Play();
             Gm.PlayerScored(2);
 
         }else if(other.CompareTag(tagFilter3)){
