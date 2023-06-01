@@ -50,22 +50,29 @@ public class PuckManager : MonoBehaviour
             Gm.PlayerScored(2);
 
         }else if(other.CompareTag(tagFilter3)){
-            rb.AddForce(transform.forward * impulseForce, ForceMode.Impulse);
-            //Gm.PlayerScored(1);
+            ApplyImpulseForce(other.transform);
+            //rb.AddForce(transform.forward * impulseForce, ForceMode.Impulse);
+    
 
         }else if(other.CompareTag(tagFilter4)){
-            rb.AddForce(transform.forward * impulseForce, ForceMode.Impulse);
-            //Gm.PlayerScored(1);
+            ApplyImpulseForce(other.transform);
+            //rb.AddForce(transform.forward * impulseForce, ForceMode.Impulse);
+    
 
         }
-        //ApplyImpulseForce();
+        //ApplyImpulseForce(other.transform);
         
     }
 
-    private void ApplyImpulseForce()
+    private void ApplyImpulseForce(Transform stickTransform)
     {
         // Apply an impulse force to the disc in the forward direction
-        rb.AddForce(transform.forward * impulseForce, ForceMode.Impulse);
+        //rb.AddForce(transform.forward * impulseForce, ForceMode.Impulse);
+
+        Vector3 direction = (stickTransform.position - transform.position).normalized;
+
+        // Apply an impulse force to the puck in the calculated direction
+        rb.AddForce(direction * impulseForce, ForceMode.Impulse);
     }
 
 
