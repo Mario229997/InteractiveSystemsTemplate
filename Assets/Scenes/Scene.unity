@@ -2142,7 +2142,7 @@ GameObject:
   - component: {fileID: 440273944}
   m_Layer: 0
   m_Name: Wall6
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2168,7 +2168,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 440273942}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: a01820ca2d9079a4cb5a8e0ca70a2951, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -3465,7 +3465,7 @@ GameObject:
   - component: {fileID: 932538312}
   m_Layer: 0
   m_Name: Wall4
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3491,7 +3491,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 932538310}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: a01820ca2d9079a4cb5a8e0ca70a2951, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -4044,7 +4044,7 @@ GameObject:
   - component: {fileID: 1042546276}
   m_Layer: 0
   m_Name: Wall3
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4070,7 +4070,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1042546274}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: a01820ca2d9079a4cb5a8e0ca70a2951, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -5819,7 +5819,7 @@ GameObject:
   - component: {fileID: 1557154716}
   m_Layer: 0
   m_Name: Wall5
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5845,7 +5845,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1557154714}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: a01820ca2d9079a4cb5a8e0ca70a2951, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -6632,7 +6632,7 @@ GameObject:
   - component: {fileID: 1647731995}
   m_Layer: 0
   m_Name: Wall1
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6658,7 +6658,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1647731993}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: a01820ca2d9079a4cb5a8e0ca70a2951, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -7028,7 +7028,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1827145104}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 51.1, y: 5, z: 3}
+  m_LocalPosition: {x: 51.1, y: 5, z: 2.9}
   m_LocalScale: {x: 2, y: 5, z: 25}
   m_Children: []
   m_Father: {fileID: 898713580}
@@ -7855,7 +7855,7 @@ GameObject:
   - component: {fileID: 1881843156}
   m_Layer: 0
   m_Name: Wall2
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7881,7 +7881,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1881843154}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: a01820ca2d9079a4cb5a8e0ca70a2951, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -9401,6 +9401,10 @@ PrefabInstance:
       propertyPath: audio2
       value: 
       objectReference: {fileID: 55020742}
+    - target: {fileID: 2033814274681765161, guid: 55f4e982d1d4bcf42a09cbcaaa31d080, type: 3}
+      propertyPath: tagFilter5
+      value: Wall
+      objectReference: {fileID: 0}
     - target: {fileID: 2033814274681765161, guid: 55f4e982d1d4bcf42a09cbcaaa31d080, type: 3}
       propertyPath: impulseForce
       value: 50
