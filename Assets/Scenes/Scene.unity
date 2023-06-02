@@ -2142,7 +2142,7 @@ GameObject:
   - component: {fileID: 440273944}
   m_Layer: 0
   m_Name: Wall6
-  m_TagString: Wall
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3465,7 +3465,7 @@ GameObject:
   - component: {fileID: 932538312}
   m_Layer: 0
   m_Name: Wall4
-  m_TagString: Wall
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4044,7 +4044,7 @@ GameObject:
   - component: {fileID: 1042546276}
   m_Layer: 0
   m_Name: Wall3
-  m_TagString: Wall
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5799,7 +5799,11 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2033814274681765161, guid: 55f4e982d1d4bcf42a09cbcaaa31d080, type: 3}
   m_PrefabInstance: {fileID: 2033814276082838578}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD
   m_GameObject: {fileID: 485691116}
+=======
+  m_GameObject: {fileID: 0}
+>>>>>>> parent of 2fa3822 (sound finished and goal positions corrected)
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d0cc8d9934b3ae1459cdc240357d9852, type: 3}
@@ -5819,7 +5823,7 @@ GameObject:
   - component: {fileID: 1557154716}
   m_Layer: 0
   m_Name: Wall5
-  m_TagString: Wall
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6632,7 +6636,7 @@ GameObject:
   - component: {fileID: 1647731995}
   m_Layer: 0
   m_Name: Wall1
-  m_TagString: Wall
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7028,7 +7032,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1827145104}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+<<<<<<< HEAD
   m_LocalPosition: {x: 51.1, y: 5, z: 2.9}
+=======
+  m_LocalPosition: {x: 51.1, y: 5, z: 3}
+>>>>>>> parent of 2fa3822 (sound finished and goal positions corrected)
   m_LocalScale: {x: 2, y: 5, z: 25}
   m_Children: []
   m_Father: {fileID: 898713580}
@@ -7855,7 +7863,7 @@ GameObject:
   - component: {fileID: 1881843156}
   m_Layer: 0
   m_Name: Wall2
-  m_TagString: Wall
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
