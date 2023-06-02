@@ -57,6 +57,8 @@ public class PuckManager : MonoBehaviour
         }else if(other.CompareTag(tagFilter4)){
             ApplyImpulseForce(other.transform);
             //rb.AddForce(transform.forward * impulseForce, ForceMode.Impulse);
+    
+
         }
         //ApplyImpulseForce(other.transform);
         
