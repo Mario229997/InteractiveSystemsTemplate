@@ -12,6 +12,7 @@ TagManager:
   - RedGoal
   - P1
   - P2
+  - Wall
   layers:
   - Default
   - TransparentFX

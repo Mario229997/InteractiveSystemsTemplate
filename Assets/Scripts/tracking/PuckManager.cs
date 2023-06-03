@@ -6,12 +6,14 @@ public class PuckManager : MonoBehaviour
 {
     public MainManager Gm;
 
-    public string tagFilter;
-    public string tagFilter2;
-    public string tagFilter3;
-    public string tagFilter4;
+    public string Goal1;
+    public string Goal2;
+    public string Player1;
+    public string Player2;
+    public string Wall;
     public AudioSource audio1;
     public AudioSource audio2;
+    public AudioSource audio3;
     private Rigidbody rb;
     private Vector3 init_pos;
 
@@ -38,27 +40,41 @@ public class PuckManager : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
 
-        if (other.CompareTag(tagFilter))  //if tagFilter = Blue goal tag
+        if (other.CompareTag(Goal1))  //if tagFilter = Blue goal tag
         {
             audio1.Play();
             audio2.Play();
             Gm.PlayerScored(1);
            
-        }else if(other.CompareTag(tagFilter2)){
+        }else if(other.CompareTag(Goal2)){
             audio1.Play();
             audio2.Play();
             Gm.PlayerScored(2);
 
-        }else if(other.CompareTag(tagFilter3)){
+        }else if(other.CompareTag(Player1)){
             ApplyImpulseForce(other.transform);
             //rb.AddForce(transform.forward * impulseForce, ForceMode.Impulse);
     
 
-        }else if(other.CompareTag(tagFilter4)){
+        }else if(other.CompareTag(Player2)){
             ApplyImpulseForce(other.transform);
             //rb.AddForce(transform.forward * impulseForce, ForceMode.Impulse);
-    
 
+        }
+        // Sound of the disk with sticks and walls
+        if (other.CompareTag (Player1))
+        {
+            audio3.Play();
+        }
+
+        if (other.CompareTag (Player2))
+        {
+            audio3.Play();
+        }
+
+        if (other.CompareTag (Wall))
+        {
+            audio3.Play();
         }
         //ApplyImpulseForce(other.transform);
         
