@@ -9987,7 +9987,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2033814274681765161, guid: 55f4e982d1d4bcf42a09cbcaaa31d080, type: 3}
       propertyPath: impulseForce
-      value: 50
+      value: 45
       objectReference: {fileID: 0}
     - target: {fileID: 2033814274681765164, guid: 55f4e982d1d4bcf42a09cbcaaa31d080, type: 3}
       propertyPath: m_RootOrder

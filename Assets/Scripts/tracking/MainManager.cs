@@ -40,17 +40,20 @@ public class MainManager : MonoBehaviour
         p1.Restart();
         p2.Restart();
 
-
-        if(goals_blue == 2){
-            BlueWins.text = "Blue Wins!";
-            RestartGame();
-        }
-        if(goals_red == 2){
-            RedWins.text = "Red Wins!";
-            RestartGame();
-        }
-
         DisplayScore();
+
+        if(goals_blue == 3){
+            BlueWins.text = "Blue Wins!";
+            DisplayScore();
+            RestartGame();
+        }
+        if(goals_red == 3){
+            RedWins.text = "Red Wins!";
+            DisplayScore();
+            RestartGame();
+        }
+
+        
 
     }
 
