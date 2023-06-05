@@ -16,6 +16,8 @@ public class MainManager : MonoBehaviour
 
     public Text ScoreTextBlue;
     public Text ScoreTextRed;
+    public Text BlueWins;
+    public Text RedWins;
 
 
     // Start is called before the first frame update
@@ -38,6 +40,16 @@ public class MainManager : MonoBehaviour
         p1.Restart();
         p2.Restart();
 
+
+        if(goals_blue == 2){
+            BlueWins.text = "Blue Wins!";
+            RestartGame();
+        }
+        if(goals_red == 2){
+            RedWins.text = "Red Wins!";
+            RestartGame();
+        }
+
         DisplayScore();
 
     }
@@ -45,5 +57,13 @@ public class MainManager : MonoBehaviour
     void DisplayScore(){
         ScoreTextBlue.text = "Blue: " + goals_blue;
         ScoreTextRed.text = "Red: " + goals_red;
+    }
+
+    void RestartGame(){
+        goals_blue = 0;
+        goals_red = 0;
+        p1.Restart();
+        p2.Restart();
+        puck.Restart();
     }
 }
