@@ -13,6 +13,7 @@ TagManager:
   - P1
   - P2
   - Wall
+  - BlueDoubleGoal
   layers:
   - Default
   - TransparentFX

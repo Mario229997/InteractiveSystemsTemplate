@@ -6,8 +6,11 @@ using UnityEngine.UI;
 public class MainManager : MonoBehaviour
 {
 
-    private int goals_red;
-    private int goals_blue;
+    public int goals_red;
+    public int goals_blue;
+
+    public int g_points_blue;
+    public int g_points_red;
 
     public PuckManager puck;
 
@@ -25,15 +28,17 @@ public class MainManager : MonoBehaviour
     {
         goals_red = 0;
         goals_blue = 0;
+        g_points_blue = 1;
+        g_points_red = 1;
         DisplayScore();
     }
 
     public void PlayerScored(int num_player){
 
         if(num_player == 2){
-            goals_blue++;
+            goals_blue = goals_blue + g_points_blue;
         }else{
-            goals_red++;
+            goals_red = goals_red + g_points_red;
         }
 
         puck.Restart();

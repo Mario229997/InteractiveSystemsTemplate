@@ -8,6 +8,14 @@ public class PlayerManager : MonoBehaviour
 
     private Vector3 init_pos;
 
+    public string ability;
+    //public string ability_red;
+
+    public int idx;
+
+    public PlayerMovement pm;
+    public MainManager mm;
+
 
     // Start is called before the first frame update
     void Start()
@@ -22,5 +30,24 @@ public class PlayerManager : MonoBehaviour
     {
         transform.position = init_pos;
         
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if(idx == 1){
+            if(other.CompareTag(ability)){
+                if(pm.isGround()){
+                    mm.g_points_blue = 2;
+
+                }
+            }
+        }
+        if(idx == 2){
+            if(other.CompareTag(ability)){
+                if(pm.isGround()){
+                    mm.g_points_red = 2;
+
+                }
+            }
+        }
     }
 }

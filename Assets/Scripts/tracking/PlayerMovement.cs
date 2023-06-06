@@ -37,4 +37,13 @@ public class PlayerMovement : MonoBehaviour
         }
         transform.position = pos;
     }
+    
+    public bool isGround(){
+        
+        if(transform.position.y < 2){
+            return true;
+        }else{
+            return false;
+        }
+    } 
 }
