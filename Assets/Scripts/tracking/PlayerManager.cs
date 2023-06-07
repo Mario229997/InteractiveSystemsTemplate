@@ -21,7 +21,7 @@ public class PlayerManager : MonoBehaviour
     private bool isAbility;
     private bool isAbility_on;
     private float init_time;
-    private float duration_time = 20f;
+    private float duration_time = 10f;
 
     public GameObject cubePrefab;
 
@@ -40,6 +40,10 @@ public class PlayerManager : MonoBehaviour
     public AudioSource audio_reduce_red;
     public AudioSource audio_obstacles_red;
 
+    public AudioSource audio_disable_ability;
+
+    public bool is_box_on = false;
+
 
     // Start is called before the first frame update
     void Start()
@@ -57,8 +61,9 @@ public class PlayerManager : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (isAbility){
+        if (isAbility && other.CompareTag(ability)){
             Destroy(other.gameObject);
+            //is_box_on = false;
             return;
 
         }
@@ -102,6 +107,7 @@ public class PlayerManager : MonoBehaviour
                     audio_double_red.Play();
                 }
                 Debug.Log("Double Goal");
+                //audio_disable_ability.Play();
 
             }
             else if (randomNumber == 2)
@@ -109,10 +115,27 @@ public class PlayerManager : MonoBehaviour
                 instanced_cubePrefab = Instantiate(cubePrefab, cubePrefab.transform.position, Quaternion.identity);
                 Debug.Log("New Block");
 
+                if(idx == 1){
+                    audio_obstacles_blue.Play();
+
+                }else{
+                    audio_obstacles_red.Play();
+
+                }
+                
+
             }else if(randomNumber == 3){
                 Debug.Log("Smaller goal");
                 instanced_extra_goal1 = Instantiate(extra_goal1, extra_goal1.transform.position, extra_goal1.transform.rotation);
                 instanced_extra_goal2 = Instantiate(extra_goal2, extra_goal2.transform.position, extra_goal2.transform.rotation);
+                if(idx == 1){
+                    audio_reduce_blue.Play();
+
+                }else{
+                    audio_reduce_red.Play();
+
+                }
+                
 
             }
         }
@@ -127,22 +150,30 @@ public class PlayerManager : MonoBehaviour
                     mm.g_points_red = 1;
                 }
                 Debug.Log("Double Goal Over");
+                audio_disable_ability.Play();
 
             }
             else if (randomNumber == 2)
             {
                 DestroyImmediate(instanced_cubePrefab, true);
                 Debug.Log("New Block Over");
+                audio_disable_ability.Play();
 
             }else if(randomNumber == 3){
                 Debug.Log("Smaller goal Over");
                 DestroyImmediate(instanced_extra_goal1, true);
                 DestroyImmediate(instanced_extra_goal2, true);
+                audio_disable_ability.Play();
 
             }
             isAbility_on = false;
+            mm.isAbOn = false;
 
         }
+    }
+
+    public bool isAbilityOn(){
+        return isAbility_on;
     }
 
 }

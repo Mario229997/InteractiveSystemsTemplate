@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
 public class MainManager : MonoBehaviour
 {
+    public bool isAbOn = false;
 
     public int goals_red;
     public int goals_blue;
@@ -24,6 +26,16 @@ public class MainManager : MonoBehaviour
 
     public AudioSource Victory;
 
+    public GameObject ability_plate_prefab;
+
+    private GameObject instanced_ability_plate;
+
+    private float init_time = 0f;
+    private float interval_time = 15f;
+
+    //public Transform spawnInterval1;
+    //public Transform spawnInterval2;
+
 
     // Start is called before the first frame update
     void Start()
@@ -35,7 +47,39 @@ public class MainManager : MonoBehaviour
         DisplayScore();
     }
 
-    void update(){
+    void Update(){
+
+        /*
+        bool is_on = p1.isAbilityOn();
+        bool is_on2 = p2.isAbilityOn();
+
+        if(is_on == false && is_on2 == false && p1.is_box_on == false){
+            Debug.Log("hola");
+            init_time += Time.deltaTime;
+        }
+
+        //init_time += Time.deltaTime;
+*/
+
+        if(isAbOn == false){
+            Debug.Log("hola");
+            init_time += Time.deltaTime;
+        }
+
+        if(init_time >= interval_time){
+
+            //Debug.Log("hola");
+            //p1.is_box_on = true;
+            //p2.is_box_on = true;
+            isAbOn =  true;
+            instanced_ability_plate = Instantiate(ability_plate_prefab, getRandomPosition(), Quaternion.identity);
+            init_time = 0f;
+
+        }
+
+
+        
+
         
     }
 
@@ -53,13 +97,13 @@ public class MainManager : MonoBehaviour
 
         DisplayScore();
 
-        if(goals_blue >= 3){
+        if(goals_blue >= 5){
             BlueWins.text = "Blue Wins!";
             Victory.Play();
             DisplayScore();
             RestartGame();
         }
-        if(goals_red >= 3){
+        if(goals_red >= 5){
             RedWins.text = "Red Wins!";
             Victory.Play();
             DisplayScore();
@@ -81,5 +125,14 @@ public class MainManager : MonoBehaviour
         p1.Restart();
         p2.Restart();
         puck.Restart();
+    }
+
+    private Vector3 getRandomPosition(){
+        float x = Random.Range(30.0f, 70.0f);
+        float y = -1.2f;
+        float z = Random.Range(35.0f, 65.0f);
+
+        return new Vector3(x, y, z);
+
     }
 }
