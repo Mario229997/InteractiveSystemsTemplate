@@ -22,6 +22,8 @@ public class MainManager : MonoBehaviour
     public Text BlueWins;
     public Text RedWins;
 
+    public AudioSource Victory;
+
 
     // Start is called before the first frame update
     void Start()
@@ -51,13 +53,15 @@ public class MainManager : MonoBehaviour
 
         DisplayScore();
 
-        if(goals_blue >= 4){
+        if(goals_blue >= 3){
             BlueWins.text = "Blue Wins!";
+            Victory.Play();
             DisplayScore();
             RestartGame();
         }
-        if(goals_red >= 4){
+        if(goals_red >= 3){
             RedWins.text = "Red Wins!";
+            Victory.Play();
             DisplayScore();
             RestartGame();
         }

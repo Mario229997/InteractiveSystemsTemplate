@@ -33,7 +33,12 @@ public class PlayerManager : MonoBehaviour
     private GameObject instanced_extra_goal1;
     private GameObject instanced_extra_goal2;
 
-
+    public AudioSource audio_double_blue;
+    public AudioSource audio_reduce_blue;
+    public AudioSource audio_obstacles_blue;
+    public AudioSource audio_double_red;
+    public AudioSource audio_reduce_red;
+    public AudioSource audio_obstacles_red;
 
 
     // Start is called before the first frame update
@@ -91,8 +96,10 @@ public class PlayerManager : MonoBehaviour
             {
                 if(idx == 1){
                     mm.g_points_blue = 2;
+                    audio_double_blue.Play();
                 }else{
                     mm.g_points_red = 2;
+                    audio_double_red.Play();
                 }
                 Debug.Log("Double Goal");
 
