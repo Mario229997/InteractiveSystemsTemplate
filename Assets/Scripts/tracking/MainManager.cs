@@ -47,18 +47,16 @@ public class MainManager : MonoBehaviour
 
         DisplayScore();
 
-        if(goals_blue == 3){
+        if(goals_blue >= 4){
             BlueWins.text = "Blue Wins!";
             DisplayScore();
-            RestartGame();
         }
-        if(goals_red == 3){
+        if(goals_red >= 4){
             RedWins.text = "Red Wins!";
             DisplayScore();
-            RestartGame();
         }
 
-        
+        RestartGame();
 
     }
 
