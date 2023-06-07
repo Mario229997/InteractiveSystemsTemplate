@@ -35,7 +35,7 @@ public class MainManager : MonoBehaviour
 
     public void PlayerScored(int num_player){
 
-        if(num_player == 2){
+        if(num_player == 1){
             goals_blue = goals_blue + g_points_blue;
         }else{
             goals_red = goals_red + g_points_red;
@@ -50,13 +50,15 @@ public class MainManager : MonoBehaviour
         if(goals_blue >= 4){
             BlueWins.text = "Blue Wins!";
             DisplayScore();
+            RestartGame();
         }
         if(goals_red >= 4){
             RedWins.text = "Red Wins!";
             DisplayScore();
+            RestartGame();
         }
 
-        RestartGame();
+        //RestartGame();
 
     }
 

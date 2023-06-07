@@ -44,12 +44,12 @@ public class PuckManager : MonoBehaviour
         {
             audio1.Play();
             audio2.Play();
-            Gm.PlayerScored(1);
+            Gm.PlayerScored(2);
            
         }else if(other.CompareTag(Goal2)){
             audio1.Play();
             audio2.Play();
-            Gm.PlayerScored(2);
+            Gm.PlayerScored(1);
 
         }else if(other.CompareTag(Player1)){
             ApplyForce(other.transform);

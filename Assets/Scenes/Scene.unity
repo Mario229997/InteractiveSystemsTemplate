@@ -5307,6 +5307,7 @@ MonoBehaviour:
   idx: 1
   pm: {fileID: 1440896352}
   mm: {fileID: 1039881152}
+  cubePrefab: {fileID: 6258884650899704514, guid: 45578f22db3ea3b4abf32765a06e4ad7, type: 3}
 --- !u!136 &1440896355
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -5947,10 +5948,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ec82135527f30c43a7a359c6053b34f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ability: 
-  idx: 0
-  pm: {fileID: 0}
-  mm: {fileID: 0}
+  ability: RedDoubleGoal
+  idx: 2
+  pm: {fileID: 1471923280}
+  mm: {fileID: 1039881152}
+  cubePrefab: {fileID: 7119409251600999399, guid: e4e442693cde14b44b1d7ad3893726cd, type: 3}
 --- !u!136 &1471923283
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -7752,7 +7754,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1847503673}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: ad4d43e2db71f1f40889784e3bf1f66f, type: 3}
@@ -8479,7 +8481,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_FontSize: 30
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 1
@@ -9820,7 +9822,7 @@ GameObject:
   - component: {fileID: 2101061422}
   m_Layer: 0
   m_Name: DoubleGoalRed
-  m_TagString: BlueDoubleGoal
+  m_TagString: RedDoubleGoal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9960,7 +9962,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_FontSize: 30
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 1
