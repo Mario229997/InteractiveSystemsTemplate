@@ -33,6 +33,10 @@ public class MainManager : MonoBehaviour
         DisplayScore();
     }
 
+    void update(){
+        
+    }
+
     public void PlayerScored(int num_player){
 
         if(num_player == 1){

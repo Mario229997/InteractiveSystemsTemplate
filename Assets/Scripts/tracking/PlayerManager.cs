@@ -13,14 +13,27 @@ public class PlayerManager : MonoBehaviour
 
     public int idx;
 
+    private int randomNumber;
+
     public PlayerMovement pm;
     public MainManager mm;
 
     private bool isAbility;
+    private bool isAbility_on;
     private float init_time;
-    private float duration_time = 2f;
+    private float duration_time = 20f;
 
     public GameObject cubePrefab;
+
+    public GameObject extra_goal1;
+    public GameObject extra_goal2;
+
+    private GameObject instanced_cubePrefab;
+
+    private GameObject instanced_extra_goal1;
+    private GameObject instanced_extra_goal2;
+
+
 
 
     // Start is called before the first frame update
@@ -39,6 +52,11 @@ public class PlayerManager : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
+        if (isAbility){
+            Destroy(other.gameObject);
+            return;
+
+        }
         if(idx == 1){
             if(other.CompareTag(ability)){
                 //mm.g_points_blue = 2;
@@ -54,8 +72,6 @@ public class PlayerManager : MonoBehaviour
                 Debug.Log("Collision 2");
                 isAbility = true;
                 init_time = Time.time;
-
-
           
             }
         }
@@ -63,11 +79,13 @@ public class PlayerManager : MonoBehaviour
 
     private void Update()
     {
-        if (isAbility && Time.time - init_time >= 3f)
+        if (isAbility && Time.time - init_time >= 1f)
         {
             isAbility = false;
+            isAbility_on = true;
 
-            int randomNumber = Random.Range(1, 3);
+            randomNumber = Random.Range(1, 4);
+            //randomNumber = 2;
 
             if (randomNumber == 1)
             {
@@ -77,56 +95,47 @@ public class PlayerManager : MonoBehaviour
                     mm.g_points_red = 2;
                 }
                 Debug.Log("Double Goal");
+
             }
             else if (randomNumber == 2)
             {
-                CreateCube();
+                instanced_cubePrefab = Instantiate(cubePrefab, cubePrefab.transform.position, Quaternion.identity);
                 Debug.Log("New Block");
+
+            }else if(randomNumber == 3){
+                Debug.Log("Smaller goal");
+                instanced_extra_goal1 = Instantiate(extra_goal1, extra_goal1.transform.position, extra_goal1.transform.rotation);
+                instanced_extra_goal2 = Instantiate(extra_goal2, extra_goal2.transform.position, extra_goal2.transform.rotation);
+
             }
         }
-    }
 
-    private void CreateCube()
-    {
-        Vector3 spawnPosition = cubePrefab.transform.position; // Adjust the spawn position as needed
+        if(isAbility_on && duration_time - (Time.time - init_time) <= 0f){
 
-        Instantiate(cubePrefab, spawnPosition, Quaternion.identity);
-    }
-
-    /*
-    public IEnumerator HandleTriggerCollision()
-    {
-        Debug.Log("Here");
-        while (isAbility)
-        {
-            Debug.Log("Here1");
-            if (Time.time - init_time >= duration_time)
+             if (randomNumber == 1)
             {
-                Debug.Log("Here2");
+                if(idx == 1){
+                    mm.g_points_blue = 1;
+                }else{
+                    mm.g_points_red = 1;
+                }
+                Debug.Log("Double Goal Over");
 
-                int randomNumber = Random.Range(1, 3);
-                if (randomNumber == 1)
-                {
-                    if(idx == 1){
-                        mm.g_points_blue = 2;
-                    }else{
-                        mm.g_points_red = 2;
-                    }
-                }
-                else if (randomNumber == 2)
-                {
-                    // Create a 3D cube
-                    GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
-                    cube.transform.position = transform.position + Vector3.up; // Adjust the position of the cube as needed
-                }
             }
+            else if (randomNumber == 2)
+            {
+                DestroyImmediate(instanced_cubePrefab, true);
+                Debug.Log("New Block Over");
 
-            yield return null;
+            }else if(randomNumber == 3){
+                Debug.Log("Smaller goal Over");
+                DestroyImmediate(instanced_extra_goal1, true);
+                DestroyImmediate(instanced_extra_goal2, true);
+
+            }
+            isAbility_on = false;
+
         }
     }
-    */
-
-
-
 
 }

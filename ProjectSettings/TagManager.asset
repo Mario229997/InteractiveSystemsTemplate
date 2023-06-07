@@ -15,6 +15,7 @@ TagManager:
   - Wall
   - BlueDoubleGoal
   - RedDoubleGoal
+  - Ability
   layers:
   - Default
   - TransparentFX
