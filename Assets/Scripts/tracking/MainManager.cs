@@ -102,21 +102,31 @@ public class MainManager : MonoBehaviour
             Victory.Play();
             DisplayScore();
             RestartGame();
+            DisplayScore();
+
         }
         if(goals_red >= 5){
             RedWins.text = "Red Wins!";
             Victory.Play();
             DisplayScore();
             RestartGame();
+            DisplayScore();
         }
 
         //RestartGame();
 
     }
 
-    void DisplayScore(){
+    void DisplayScore()
+    {
         ScoreTextBlue.text = "Blue: " + goals_blue;
         ScoreTextRed.text = "Red: " + goals_red;
+    }
+
+    void DestroyScore()
+    {
+        ScoreTextBlue.text = "";
+        ScoreTextRed.text = "";
     }
 
     void RestartGame(){
