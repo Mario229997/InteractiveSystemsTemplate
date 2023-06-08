@@ -33,8 +33,8 @@ public class MainManager : MonoBehaviour
     private float init_time = 0f;
     private float interval_time = 15f;
 
-    //public Transform spawnInterval1;
-    //public Transform spawnInterval2;
+    private float end_match = 0f;
+    private float timer_end = 10f;
 
 
     // Start is called before the first frame update
@@ -49,18 +49,6 @@ public class MainManager : MonoBehaviour
 
     void Update(){
 
-        /*
-        bool is_on = p1.isAbilityOn();
-        bool is_on2 = p2.isAbilityOn();
-
-        if(is_on == false && is_on2 == false && p1.is_box_on == false){
-            Debug.Log("hola");
-            init_time += Time.deltaTime;
-        }
-
-        //init_time += Time.deltaTime;
-*/
-
         if(isAbOn == false){
             Debug.Log("hola");
             init_time += Time.deltaTime;
@@ -68,19 +56,32 @@ public class MainManager : MonoBehaviour
 
         if(init_time >= interval_time){
 
-            //Debug.Log("hola");
-            //p1.is_box_on = true;
-            //p2.is_box_on = true;
             isAbOn =  true;
             instanced_ability_plate = Instantiate(ability_plate_prefab, getRandomPosition(), Quaternion.identity);
             init_time = 0f;
 
         }
 
+        if(goals_blue >= 3){
 
-        
+            end_match += Time.deltaTime;
+            if(end_match >  timer_end){
+                RestartGame();
+                end_match = 0f;
 
-        
+            }
+            //RestartGame();
+            DisplayScore();
+        }
+        if(goals_red >= 3){
+            end_match += Time.deltaTime;
+
+            if(end_match >  timer_end){
+                RestartGame();
+                end_match = 0f;
+            }
+            DisplayScore();
+        }
     }
 
     public void PlayerScored(int num_player){
@@ -97,34 +98,30 @@ public class MainManager : MonoBehaviour
 
         DisplayScore();
 
-        if(goals_blue >= 5){
+        if(goals_blue >= 3){
             BlueWins.text = "Blue Wins!";
             Victory.Play();
             DisplayScore();
-            RestartGame();
-            DisplayScore();
 
         }
-        if(goals_red >= 5){
+        if(goals_red >= 3){
             RedWins.text = "Red Wins!";
             Victory.Play();
             DisplayScore();
-            RestartGame();
-            DisplayScore();
+        
         }
 
         //RestartGame();
 
     }
 
-    void DisplayScore()
-    {
+    void DisplayScore(){
         ScoreTextBlue.text = "Blue: " + goals_blue;
         ScoreTextRed.text = "Red: " + goals_red;
     }
 
-    void DestroyScore()
-    {
+    void RewriteScore(){
+
         ScoreTextBlue.text = "";
         ScoreTextRed.text = "";
     }
@@ -135,6 +132,12 @@ public class MainManager : MonoBehaviour
         p1.Restart();
         p2.Restart();
         puck.Restart();
+        RedWins.text = "";
+        BlueWins.text = "";
+        if(isAbOn == true){
+            DestroyImmediate(instanced_ability_plate, true);
+        }
+        init_time = 0.0f;
     }
 
     private Vector3 getRandomPosition(){
