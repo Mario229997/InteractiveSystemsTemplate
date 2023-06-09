@@ -50,12 +50,11 @@ public class MainManager : MonoBehaviour
     void Update(){
 
         if(isAbOn == false){
-            Debug.Log("hola");
             init_time += Time.deltaTime;
+
         }
 
         if(init_time >= interval_time){
-
             isAbOn =  true;
             instanced_ability_plate = Instantiate(ability_plate_prefab, getRandomPosition(), Quaternion.identity);
             init_time = 0f;
@@ -67,10 +66,8 @@ public class MainManager : MonoBehaviour
             end_match += Time.deltaTime;
             if(end_match >  timer_end){
                 RestartGame();
-                end_match = 0f;
 
             }
-            //RestartGame();
             DisplayScore();
         }
         if(goals_red >= 3){
@@ -78,7 +75,6 @@ public class MainManager : MonoBehaviour
 
             if(end_match >  timer_end){
                 RestartGame();
-                end_match = 0f;
             }
             DisplayScore();
         }
@@ -136,8 +132,9 @@ public class MainManager : MonoBehaviour
         BlueWins.text = "";
         if(isAbOn == true){
             DestroyImmediate(instanced_ability_plate, true);
-        }
+            isAbOn = false;        }
         init_time = 0.0f;
+        end_match = 0.0f;
     }
 
     private Vector3 getRandomPosition(){
