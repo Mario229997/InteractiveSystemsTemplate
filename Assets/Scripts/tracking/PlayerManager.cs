@@ -44,6 +44,10 @@ public class PlayerManager : MonoBehaviour
 
     public bool is_box_on = false;
 
+    public bool isA1on = false;
+    public bool isA2on = false;
+    public bool isA3on = false;
+
 
     // Start is called before the first frame update
     void Start()
@@ -108,6 +112,7 @@ public class PlayerManager : MonoBehaviour
                 }
                 Debug.Log("Double Goal");
                 //audio_disable_ability.Play();
+                isA1on = true;
 
             }
             else if (randomNumber == 2)
@@ -122,6 +127,7 @@ public class PlayerManager : MonoBehaviour
                     audio_obstacles_red.Play();
 
                 }
+                isA2on = true;
                 
 
             }else if(randomNumber == 3){
@@ -135,6 +141,8 @@ public class PlayerManager : MonoBehaviour
                     audio_reduce_red.Play();
 
                 }
+
+                isA3on = true;
                 
 
             }
@@ -144,26 +152,18 @@ public class PlayerManager : MonoBehaviour
 
              if (randomNumber == 1)
             {
-                if(idx == 1){
-                    mm.g_points_blue = 1;
-                }else{
-                    mm.g_points_red = 1;
-                }
-                Debug.Log("Double Goal Over");
                 audio_disable_ability.Play();
+                Ability1Over();
 
             }
             else if (randomNumber == 2)
             {
-                DestroyImmediate(instanced_cubePrefab, true);
-                Debug.Log("New Block Over");
                 audio_disable_ability.Play();
+                Ability2Over();
 
             }else if(randomNumber == 3){
-                Debug.Log("Smaller goal Over");
-                DestroyImmediate(instanced_extra_goal1, true);
-                DestroyImmediate(instanced_extra_goal2, true);
                 audio_disable_ability.Play();
+                Ability3Over();
 
             }
             isAbility_on = false;
@@ -174,6 +174,52 @@ public class PlayerManager : MonoBehaviour
 
     public bool isAbilityOn(){
         return isAbility_on;
+    }
+
+    public void Ability1Over(){
+
+        if(isA1on == true){
+            if(idx == 1){
+                    mm.g_points_blue = 1;
+                }else{
+                    mm.g_points_red = 1;
+                }
+                Debug.Log("Double Goal Over");
+
+                isA1on = false;
+                isAbility_on = false;
+                mm.isAbOn = false;
+        }
+
+    }
+
+    public void Ability2Over(){
+
+        if(isA2on == true){
+            DestroyImmediate(instanced_cubePrefab, true);
+            Debug.Log("New Block Over");
+
+            isA2on = false;
+
+            isAbility_on = false;
+            mm.isAbOn = false;
+        }
+        
+    }
+
+    public void Ability3Over(){
+
+        if(isA3on == true){
+            Debug.Log("Smaller goal Over");
+            DestroyImmediate(instanced_extra_goal1, true);
+            DestroyImmediate(instanced_extra_goal2, true);
+            
+            isA3on = false;
+
+            isAbility_on = false;
+            mm.isAbOn = false;
+        }
+        
     }
 
 }

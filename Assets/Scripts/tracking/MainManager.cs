@@ -135,6 +135,12 @@ public class MainManager : MonoBehaviour
             isAbOn = false;        }
         init_time = 0.0f;
         end_match = 0.0f;
+        p1.Ability1Over();
+        p2.Ability1Over();
+        p1.Ability2Over();
+        p2.Ability2Over();
+        p1.Ability3Over();
+        p2.Ability3Over();
     }
 
     private Vector3 getRandomPosition(){
