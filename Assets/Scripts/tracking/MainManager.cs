@@ -25,6 +25,9 @@ public class MainManager : MonoBehaviour
     public Text RedWins;
 
     public AudioSource Victory;
+    public AudioSource blue_wins;
+    public AudioSource red_wins;
+    public AudioSource new_game;
 
     public GameObject ability_plate_prefab;
 
@@ -34,7 +37,7 @@ public class MainManager : MonoBehaviour
     private float interval_time = 15f;
 
     private float end_match = 0f;
-    private float timer_end = 10f;
+    private float timer_end = 5f;
 
 
     // Start is called before the first frame update
@@ -51,26 +54,23 @@ public class MainManager : MonoBehaviour
 
         if(isAbOn == false){
             init_time += Time.deltaTime;
-
         }
 
         if(init_time >= interval_time){
             isAbOn =  true;
             instanced_ability_plate = Instantiate(ability_plate_prefab, getRandomPosition(), Quaternion.identity);
             init_time = 0f;
-
         }
 
-        if(goals_blue >= 3){
-
+        if(goals_blue >= 5){
             end_match += Time.deltaTime;
+
             if(end_match >  timer_end){
                 RestartGame();
-
             }
             DisplayScore();
         }
-        if(goals_red >= 3){
+        if(goals_red >= 5){
             end_match += Time.deltaTime;
 
             if(end_match >  timer_end){
@@ -94,20 +94,19 @@ public class MainManager : MonoBehaviour
 
         DisplayScore();
 
-        if(goals_blue >= 3){
+        if(goals_blue >= 5){
             BlueWins.text = "Blue Wins!";
             Victory.Play();
+            blue_wins.Play();
             DisplayScore();
-
         }
-        if(goals_red >= 3){
+        if(goals_red >= 5){
             RedWins.text = "Red Wins!";
             Victory.Play();
+            red_wins.Play();
             DisplayScore();
-        
         }
 
-        //RestartGame();
 
     }
 
@@ -123,6 +122,7 @@ public class MainManager : MonoBehaviour
     }
 
     void RestartGame(){
+        new_game.Play();
         goals_blue = 0;
         goals_red = 0;
         p1.Restart();
@@ -130,9 +130,11 @@ public class MainManager : MonoBehaviour
         puck.Restart();
         RedWins.text = "";
         BlueWins.text = "";
+
         if(isAbOn == true){
             DestroyImmediate(instanced_ability_plate, true);
-            isAbOn = false;        }
+            isAbOn = false;        
+        }
         init_time = 0.0f;
         end_match = 0.0f;
         p1.Ability1Over();

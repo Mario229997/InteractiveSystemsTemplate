@@ -9,7 +9,6 @@ public class PlayerManager : MonoBehaviour
     private Vector3 init_pos;
 
     public string ability;
-    //public string ability_red;
 
     public int idx;
 
@@ -21,7 +20,7 @@ public class PlayerManager : MonoBehaviour
     private bool isAbility;
     private bool isAbility_on;
     private float init_time;
-    private float duration_time = 10f;
+    private float duration_time = 15f;
 
     public GameObject cubePrefab;
 
@@ -54,39 +53,32 @@ public class PlayerManager : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         init_pos = transform.position;
-        
     }
 
     // Update is called once per frame
     public void Restart()
     {
         transform.position = init_pos;
-        
     }
+
     private void OnTriggerEnter(Collider other)
     {
         if (isAbility && other.CompareTag(ability)){
             Destroy(other.gameObject);
-            //is_box_on = false;
             return;
-
         }
         if(idx == 1){
             if(other.CompareTag(ability)){
-                //mm.g_points_blue = 2;
                 isAbility = true;
                 Debug.Log("Collision 1");
                 init_time = Time.time;
-
             }
         }
         if(idx == 2){
             if(other.CompareTag(ability)){
-                //mm.g_points_red = 2;
                 Debug.Log("Collision 2");
                 isAbility = true;
                 init_time = Time.time;
-          
             }
         }
     }
@@ -99,7 +91,6 @@ public class PlayerManager : MonoBehaviour
             isAbility_on = true;
 
             randomNumber = Random.Range(1, 4);
-            //randomNumber = 2;
 
             if (randomNumber == 1)
             {
@@ -111,9 +102,7 @@ public class PlayerManager : MonoBehaviour
                     audio_double_red.Play();
                 }
                 Debug.Log("Double Goal");
-                //audio_disable_ability.Play();
                 isA1on = true;
-
             }
             else if (randomNumber == 2)
             {
@@ -128,47 +117,38 @@ public class PlayerManager : MonoBehaviour
 
                 }
                 isA2on = true;
-                
-
-            }else if(randomNumber == 3){
+            }
+            else if(randomNumber == 3){
                 Debug.Log("Smaller goal");
                 instanced_extra_goal1 = Instantiate(extra_goal1, extra_goal1.transform.position, extra_goal1.transform.rotation);
                 instanced_extra_goal2 = Instantiate(extra_goal2, extra_goal2.transform.position, extra_goal2.transform.rotation);
                 if(idx == 1){
                     audio_reduce_blue.Play();
-
                 }else{
                     audio_reduce_red.Play();
-
                 }
-
                 isA3on = true;
-                
-
             }
         }
 
         if(isAbility_on && duration_time - (Time.time - init_time) <= 0f){
 
-             if (randomNumber == 1)
+            if (randomNumber == 1)
             {
                 audio_disable_ability.Play();
                 Ability1Over();
-
             }
             else if (randomNumber == 2)
             {
                 audio_disable_ability.Play();
                 Ability2Over();
-
-            }else if(randomNumber == 3){
+            }
+            else if(randomNumber == 3){
                 audio_disable_ability.Play();
                 Ability3Over();
-
             }
             isAbility_on = false;
             mm.isAbOn = false;
-
         }
     }
 
@@ -180,17 +160,17 @@ public class PlayerManager : MonoBehaviour
 
         if(isA1on == true){
             if(idx == 1){
-                    mm.g_points_blue = 1;
-                }else{
-                    mm.g_points_red = 1;
-                }
-                Debug.Log("Double Goal Over");
+                mm.g_points_blue = 1;
+            }
+            else{
+                mm.g_points_red = 1;
+            }
+            Debug.Log("Double Goal Over");
 
-                isA1on = false;
-                isAbility_on = false;
-                mm.isAbOn = false;
+            isA1on = false;
+            isAbility_on = false;
+            mm.isAbOn = false;
         }
-
     }
 
     public void Ability2Over(){
@@ -204,7 +184,6 @@ public class PlayerManager : MonoBehaviour
             isAbility_on = false;
             mm.isAbOn = false;
         }
-        
     }
 
     public void Ability3Over(){
@@ -219,7 +198,6 @@ public class PlayerManager : MonoBehaviour
             isAbility_on = false;
             mm.isAbOn = false;
         }
-        
     }
 
 }
